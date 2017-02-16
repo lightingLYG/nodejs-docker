@@ -2,14 +2,14 @@ FROM lightinglyg/alpine-base:3.4
 
 MAINTAINER Lighting <liuyg@liuyingguang.cn>
 
-ENV NODE_VERSION=v4.5.0 NPM_VERSION=2
+#ENV NODE_VERSION=v4.5.0 NPM_VERSION=2
 #ENV NODE_VERSION=v5.12.0 NPM_VERSION=3
-#ENV NODE_VERSION=v6.4.0 NPM_VERSION=3
+ENV NODE_VERSION=v6.9.1 NPM_VERSION=v3.10.8
 
 RUN apk add --no-cache curl make gcc g++ python linux-headers paxctl libgcc libstdc++ \
   && mkdir -p /usr/local/src \
   && cd /usr/local/src \
-  && curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -zx \
+  && curl -sSL http://cdn.npm.taobao.org/dist/node/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz | tar -zx \
   && cd node-${NODE_VERSION} \
   && export GYP_DEFINES="linux_use_gold_flags=0" \
   && ./configure --prefix=/usr \
