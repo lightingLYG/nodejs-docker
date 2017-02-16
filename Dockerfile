@@ -10,7 +10,7 @@ RUN apk add --no-cache curl make gcc g++ python linux-headers paxctl libgcc libs
   && mkdir -p /usr/local/src \
   && cd /usr/local/src \
   && curl -sSL http://cdn.npm.taobao.org/dist/node/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz | tar -zx \
-  && cd node-${NODE_VERSION} \
+  && cd node-${NODE_VERSION}-linux-x64 \
   && export GYP_DEFINES="linux_use_gold_flags=0" \
   && ./configure --prefix=/usr \
   && make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) \
