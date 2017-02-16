@@ -9,7 +9,7 @@ ENV NODE_VERSION=v6.9.1 NPM_VERSION=v3.10.8
 RUN apk add --no-cache curl make gcc g++ python linux-headers paxctl libgcc libstdc++ 
 RUN mkdir -p /usr/local/src \
   && cd /usr/local/src \
-  && curl -sSL http://cdn.npm.taobao.org/dist/node/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -zx \
+  && curl -sSL http://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -zx \
   && cd node-${NODE_VERSION} \
   && export GYP_DEFINES="linux_use_gold_flags=0" \
   && ./configure --prefix=/usr \
